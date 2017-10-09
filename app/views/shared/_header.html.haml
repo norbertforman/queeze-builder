@@ -1,0 +1,16 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top.navbar-affix{"data-offset-top" => "60", "data-spy" => "affix", role: "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Queeze Builder', root_path, class: "smooth-scroll navbar-brand"
+    #navbar.navbar-collapse.collapse{"aria-expanded" => "true"}
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          - if current_user.present?
+            = link_to "Sign out", destroy_user_session_path(), method: :delete
+          - else
+            = link_to "Login / Sign up", new_user_session_path()

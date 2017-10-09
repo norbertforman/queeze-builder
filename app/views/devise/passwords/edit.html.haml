@@ -1,0 +1,14 @@
+.container
+  .login-box
+    %div
+      .login-form.row
+        .col-sm-12
+          .login-body
+            = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put })  do |f|
+              = f.hidden_field :reset_password_token
+              .control
+                = f.password_field :password, autofocus: true, placeholder: "Password", class: "form-control"
+              .control
+                = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "form-control"
+              .login-button.text-center
+                = f.submit "Change my password", class: "btn btn-primary"

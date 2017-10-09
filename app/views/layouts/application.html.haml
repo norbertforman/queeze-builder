@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Queeze Builder
+    %link{href: "http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext", rel: "stylesheet", type: "text/css"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{class: "#{params[:controller].gsub("/", "-")} flat-blue"}
+    .app-container
+      = render "shared/flash"
+      .row.content-container
+        = render "shared/header"
+        .container-fluid
+          .side-body.padding-top
+            = yield
+      = render "shared/footer"
+
+    %script{type: "text/javascript", 'data-turbolinks-eval'=>false}
+      var string = "#{(j (yield :scripts))}";
+      eval(string);
