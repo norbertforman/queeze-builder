@@ -15,4 +15,5 @@
               = Kramdown::Document.new(question.body).to_html.html_safe
               .settings
                 = link_to "Edit", edit_question_path(question), class: "btn btn-info btn-xs"
+                = link_to "Answers", question_answers_path(question), class: "btn btn-primary btn-xs"
                 = link_to "Delete", question_path(question), method: :delete, confirm: "Are you sure?", class: "btn btn-danger btn-xs pull-right"
