@@ -39,6 +39,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem "font-awesome-rails"
 # A flexible authentication solution for Rails based on Warden
 gem 'devise'
+# Ruby Markdown superset converter
+gem 'kramdown'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,0 +1,18 @@
+.row
+  .col-xs-12
+    .card
+      .card-header
+        .card-title
+          .title Question
+        .card-btn
+          = link_to "Add Question", new_question_path(), class: "btn btn-success"
+      .card-body
+        - @questions.each do |question|
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= question.title
+            .panel-body
+              = Kramdown::Document.new(question.body).to_html.html_safe
+              .settings
+                = link_to "Edit", edit_question_path(question), class: "btn btn-info btn-xs"
+                = link_to "Delete", question_path(question), method: :delete, confirm: "Are you sure?", class: "btn btn-danger btn-xs pull-right"
