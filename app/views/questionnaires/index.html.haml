@@ -3,18 +3,18 @@
     .card
       .card-header
         .card-title
-          .title Questions
+          .title Questionnaires
         .card-btn
-          = link_to "Add Question", new_question_path(), class: "btn btn-success"
+          = link_to "Add Questionnaire", new_questionnaire_path(), class: "btn btn-success"
       .card-body
-        = form_tag questions_path, method: :get do
+        = form_tag questionnaires_path, method: :get do
           .form-group
             = text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control"
           = submit_tag 'Search', name: nil, class: 'btn btn-primary btn-xs'
         %br
         .questions-list
-          = render 'questions'
-        = paginate @questions
+          = render 'questionnaires'
+        = paginate @questionnaires
         .page-loader
           .text-center.load-more
             %i.fa.fa-refresh
