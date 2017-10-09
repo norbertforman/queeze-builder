@@ -1,0 +1,25 @@
+.row
+  .col-xs-12
+    .card
+      .card-header
+        .card-title
+          .title= @questionnaire.title
+      .card-body
+        = form_tag solution_questionnaire_path(@questionnaire), method: :post do
+          = hidden_field_tag :questionnaire_id, @questionnaire.id
+          .form-group
+            = email_field_tag :email, "", placeholder: "Email", class: "form-control"
+          .form-group
+            = text_field_tag :name, "", placeholder: "Name", class: "form-control"
+          - @questions.each do |question|
+            .panel.panel-default
+              .panel-heading
+                %h3.panel-title= Kramdown::Document.new(question.body).to_html.html_safe
+              .panel-body
+                .settings
+                  - question.answers.each do |answer|
+                    .form-group
+                      = check_box_tag "answers[#{question.id}][]", answer.id
+                      = answer.body
+
+          = submit_tag 'Submit', name: nil, class: 'btn btn-primary btn-xs'

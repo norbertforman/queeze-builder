@@ -11,7 +11,8 @@
       = render "shared/loader"
       = render "shared/flash"
       .row.content-container
-        = render "shared/header"
+        - unless params[:action] == "solve"
+          = render "shared/header"
         .container-fluid
           .side-body.padding-top
             = yield

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  name: MyString
+  score: 1
+  questionnaire_id: 1
+
+two:
+  email: MyString
+  name: MyString
+  score: 1
+  questionnaire_id: 1

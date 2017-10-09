@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
-  before_action :authenticate_user!
-  before_filter :load_questionnaire, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:solve, :solution]
+  before_filter :load_questionnaire, only: [:edit, :update, :destroy, :solve, :solution]
 
   def index
     @search = Questionnaire.search do
@@ -41,6 +41,27 @@ class QuestionnairesController < ApplicationController
 
     flash[:success] = "Destroy successful"
     redirect_to questionnaires_path
+  end
+
+  def solve
+    @questions = @questionnaire.questions.includes(:answers)
+  end
+
+  def solution
+    @questions = @questionnaire.questions.includes(:answers)
+    @result = Result.new(params.permit(:name, :email, :questionnaire_id))
+    score = 0
+    @questions.each do |question|
+      score += 1 if (params[:answers][question.id.to_s] - question.answers.where(correct: true).map { |a| a.id.to_s }).empty?
+    end
+    @result.score = score
+    if @result.save
+      flash[:success] = "Thank you for your submission!"
+      redirect_to root_path
+    else
+      flash[:error] = @result.errors.full_messages.to_sentence
+      render :solve
+    end
   end
 
   private
