@@ -9,8 +9,11 @@
       = link_to 'Queeze Builder', root_path, class: "smooth-scroll navbar-brand"
     #navbar.navbar-collapse.collapse{"aria-expanded" => "true"}
       %ul.nav.navbar-nav.navbar-right
-        %li
-          - if current_user.present?
+        - if current_user.present?
+          %li
+            = link_to "Questions", questions_path()
+          %li
             = link_to "Sign out", destroy_user_session_path(), method: :delete
-          - else
+        - else
+          %li
             = link_to "Login / Sign up", new_user_session_path()
