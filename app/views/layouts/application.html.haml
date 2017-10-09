@@ -8,6 +8,7 @@
     = csrf_meta_tags
   %body{class: "#{params[:controller].gsub("/", "-")} flat-blue"}
     .app-container
+      = render "shared/loader"
       = render "shared/flash"
       .row.content-container
         = render "shared/header"

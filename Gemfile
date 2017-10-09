@@ -41,6 +41,10 @@ gem "font-awesome-rails"
 gem 'devise'
 # Ruby Markdown superset converter
 gem 'kramdown'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
+gem 'kaminari'
+# the Font-Awesome web fonts and stylesheets
+gem "font-awesome-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
