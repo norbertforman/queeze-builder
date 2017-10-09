@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :questions
-         
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.info.email
+      user.email = auth.info.email || "#{auth.info.nickname.downcase}@twitter.com"
       user.password = SecureRandom.urlsafe_base64
       user.save!
     end

@@ -1,8 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  ENV["GOOGLE_OAUTH_CLIENT_ID"] = '768897598932-pe8t556cn89brjdd3bvpm53t6730favk.apps.googleusercontent.com'
-  ENV["GOOGLE_OAUTH_SECRET"] = 'GmvEZBCdFmwXniOefh-gIiR6'
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '768897598932-pe8t556cn89brjdd3bvpm53t6730favk.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_SECRET'] = 'GmvEZBCdFmwXniOefh-gIiR6'
+
+  ENV['TWITTER_CONSUMER_KEY'] = '23vufoXT4iYrEMUE6L01EjJ9x'
+  ENV['TWITTER_CONSUMER_SECRET'] = 'u8o32KyRiHs7LCAZywm55ULDlrEqcubrPHLIbRO4i9eYdjiqCH'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

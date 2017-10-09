@@ -1,5 +1,7 @@
 .login-footer
   %span.text-right
+    = link_to 'Sign on with Twitter', user_twitter_omniauth_authorize_path
+    %p.inline-block= "|"
     = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
     - if controller_name != 'sessions'
       %p.inline-block= "|"

@@ -49,6 +49,8 @@ gem 'font-awesome-rails'
 gem 'sunspot_rails'
 # Oauth2 strategy for Google
 gem 'omniauth-google-oauth2'
+# OmniAuth strategy for Twitter
+gem 'omniauth-twitter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
