@@ -44,7 +44,9 @@ gem 'kramdown'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3 and 4
 gem 'kaminari'
 # the Font-Awesome web fonts and stylesheets
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+# provides drop-in integration of the Sunspot Solr search library with Rails
+gem 'sunspot_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,6 +54,8 @@ gem "font-awesome-rails"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sunspot_solr'
+  gem 'progress_bar'
 end
 
 group :development do

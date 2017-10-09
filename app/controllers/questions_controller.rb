@@ -4,7 +4,10 @@ class QuestionsController < ApplicationController
   before_filter :load_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.order('created_at').page(params[:page]).per(PER_PAGE)
+    @search = Question.search do
+      fulltext params[:search]
+    end
+    @questions = Kaminari.paginate_array(@search.results).page(params[:page]).per(PER_PAGE)
   end
 
   def new
