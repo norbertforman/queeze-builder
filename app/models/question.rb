@@ -1,6 +1,8 @@
 class Question < ApplicationRecord
   belongs_to :user
   has_many :answers
+  has_many :questionnaires_questions
+  has_many :questionnaires, through: :questionnaires_questions
 
   validates_presence_of :title, :body
 

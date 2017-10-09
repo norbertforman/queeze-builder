@@ -45,7 +45,7 @@ class QuestionnairesController < ApplicationController
 
   private
     def questionnaire_params
-      params.require(:questionnaire).permit(:title, :user_id)
+      params.require(:questionnaire).permit(:title, :user_id, question_ids: [])
     end
 
     def load_questionnaire

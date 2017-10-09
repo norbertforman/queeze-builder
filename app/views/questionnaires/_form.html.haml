@@ -1,7 +1,10 @@
-= form_for [@questionnaire] do |f|
+= simple_form_for [@questionnaire] do |f|
   = f.hidden_field :user_id, value: current_user.id
   .form-group
     = f.label :title
     = f.text_field :title, class: "form-control"
+
+  .form-group
+    = f.association :questions, collection: current_user.questions, as: :check_boxes
 
   = f.submit "Save", class: "btn btn-success"

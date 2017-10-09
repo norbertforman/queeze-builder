@@ -51,6 +51,7 @@ gem 'sunspot_rails'
 gem 'omniauth-google-oauth2'
 # OmniAuth strategy for Twitter
 gem 'omniauth-twitter'
+gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
