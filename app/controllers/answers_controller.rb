@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   before_action :load_answer, only: [:edit, :update, :destroy]
 
   def index
-    @answers = Answer.order('created_at')
+    @answers = @question.answers.order('created_at')
   end
 
   def new
