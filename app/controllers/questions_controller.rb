@@ -1,13 +1,14 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-
   before_filter :load_question, only: [:edit, :update, :destroy]
 
   def index
     @search = Question.search do
       fulltext params[:search]
+      with :user_id, current_user.id
+      paginate page: params[:page], per_page: PER_PAGE
     end
-    @questions = Kaminari.paginate_array(@search.results).page(params[:page]).per(PER_PAGE)
+    @questions = @search.results
   end
 
   def new

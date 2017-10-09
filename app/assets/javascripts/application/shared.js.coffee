@@ -12,9 +12,6 @@ window.queezebuilder = window.queezebuilder or {}
       ), 4000
 
   endless_scroll = ->
-    console.log('mimo')
-    $(".pagination").hide()
-    $(".page-loader").hide()
     url = $(".pagination .next a").attr("href")
     if url && $(window).scrollTop() > $(document).height() - $(window).height() - 150
       $(".page-loader").show()
@@ -22,6 +19,8 @@ window.queezebuilder = window.queezebuilder or {}
       $(window).off "scroll", endless_scroll
 
   shared.init_endless_scroll = ->
+    $(".pagination").hide()
+    $(".page-loader").hide()
     $(window).off "scroll"
     $(window).on "scroll", endless_scroll
 

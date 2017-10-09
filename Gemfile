@@ -47,6 +47,8 @@ gem 'kaminari'
 gem 'font-awesome-rails'
 # provides drop-in integration of the Sunspot Solr search library with Rails
 gem 'sunspot_rails'
+# Oauth2 strategy for Google
+gem 'omniauth-google-oauth2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

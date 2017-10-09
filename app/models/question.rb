@@ -7,5 +7,6 @@ class Question < ApplicationRecord
   searchable do
     text :title
     text :body, boost: 5 # any keyword found here is 5X times more important
+    integer :user_id
   end
 end

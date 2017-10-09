@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  ENV["GOOGLE_OAUTH_CLIENT_ID"] = '768897598932-pe8t556cn89brjdd3bvpm53t6730favk.apps.googleusercontent.com'
+  ENV["GOOGLE_OAUTH_SECRET"] = 'GmvEZBCdFmwXniOefh-gIiR6'
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
