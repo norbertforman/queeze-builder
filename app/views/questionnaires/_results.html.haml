@@ -1,0 +1,8 @@
+- @results.each_with_index do |result, index|
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title= index + 1
+    .panel-body
+      %p= "Email: #{result.email}"
+      %p= "Name: #{result.name}"
+      %p= "Score: #{result.score}"

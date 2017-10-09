@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :questionnaires do
     member do
       get :solve
+      get :results
       post :solution
     end
   end

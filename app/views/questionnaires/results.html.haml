@@ -1,0 +1,17 @@
+.row
+  .col-xs-12
+    .card
+      .card-header
+        .card-title
+          .title Results
+      .card-body
+        .results-list
+          = render 'results'
+        = paginate @results
+        .page-loader
+          .text-center.load-more
+            %i.fa.fa-refresh
+            load more..
+
+= content_for :scripts do
+  window.queezebuilder.shared.init_endless_scroll();

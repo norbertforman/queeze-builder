@@ -1,0 +1,3 @@
+$(".pagination").replaceWith("<%= escape_javascript paginate(@questionnaires) %>");
+$(".questionnaires-list").append("<%= escape_javascript render 'questionnaires' %>");
+window.queezebuilder.shared.init_endless_scroll();

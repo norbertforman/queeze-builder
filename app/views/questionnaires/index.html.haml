@@ -12,7 +12,7 @@
             = text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control"
           = submit_tag 'Search', name: nil, class: 'btn btn-primary btn-xs'
         %br
-        .questions-list
+        .questionnaires-list
           = render 'questionnaires'
         = paginate @questionnaires
         .page-loader

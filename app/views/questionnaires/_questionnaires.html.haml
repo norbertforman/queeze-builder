@@ -6,4 +6,5 @@
       .settings
         = link_to "Edit", edit_questionnaire_path(questionnaire), class: "btn btn-info btn-xs"
         = link_to "Solve", solve_questionnaire_path(questionnaire), target: "_blank", class: "btn btn-primary btn-xs"
+        = link_to "Results", results_questionnaire_path(questionnaire), class: "btn btn-primary btn-xs"
         = link_to "Delete", questionnaire_path(questionnaire), method: :delete, confirm: "Are you sure?", class: "btn btn-danger btn-xs pull-right"

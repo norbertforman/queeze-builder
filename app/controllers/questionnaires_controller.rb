@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
   before_action :authenticate_user!, except: [:solve, :solution]
-  before_filter :load_questionnaire, only: [:edit, :update, :destroy, :solve, :solution]
+  before_filter :load_questionnaire, only: [:edit, :update, :destroy, :solve, :solution, :results]
 
   def index
     @search = Questionnaire.search do
@@ -50,11 +50,7 @@ class QuestionnairesController < ApplicationController
   def solution
     @questions = @questionnaire.questions.includes(:answers)
     @result = Result.new(params.permit(:name, :email, :questionnaire_id))
-    score = 0
-    @questions.each do |question|
-      score += 1 if (params[:answers][question.id.to_s] - question.answers.where(correct: true).map { |a| a.id.to_s }).empty?
-    end
-    @result.score = score
+    @result.score = calculate_score
     if @result.save
       flash[:success] = "Thank you for your submission!"
       redirect_to root_path
@@ -64,6 +60,10 @@ class QuestionnairesController < ApplicationController
     end
   end
 
+  def results
+    @results = @questionnaire.results.order('score').page(params[:page]).per(PER_PAGE)
+  end
+
   private
     def questionnaire_params
       params.require(:questionnaire).permit(:title, :user_id, question_ids: [])
@@ -71,5 +71,13 @@ class QuestionnairesController < ApplicationController
 
     def load_questionnaire
       @questionnaire = Questionnaire.find(params[:id])
+    end
+
+    def calculate_score
+      score = 0
+      @questions.each do |question|
+        score += 1 if (params[:answers][question.id.to_s] - question.answers.where(correct: true).map { |a| a.id.to_s }).empty?
+      end
+      score
     end
 end
