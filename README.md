@@ -1,24 +1,25 @@
-# README
+# Queeze Builder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Rules
 
-* Ruby version
+* Ability to sign in / sign up via devise through email & password
+* Ability to sign in via Google
+* Ability to sign in via Twitter
+* Ability to create a questions
+* Ability to search by questions title & body via solr
+* Ability to create a answers
+* Ability to link questions with answers
+* Ability to create questionnaires
+* Ability to link questionnaires with questions
 
-* System dependencies
 
-* Configuration
+## Instalation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* clone the project
+* install ruby 2.4.0 or a newer version (if you don't have it installed already)
+* run bundle install
+* rake db:create
+* rake db:migrate
+* rake sunspot:solr:start
+* rake sunspot:reindex
